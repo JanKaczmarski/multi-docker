@@ -1,0 +1,16 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t bigjack213/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run bigjack213/react-test npm test -- --coverage
+
+after_success:
+  - docker build -t bigjack213/multi-client ./client
+  - docker build -t bigjack213/multi-nginx ./nginx
+  - docker build -t bigjack213/multi-server ./server
+  - docker build -t bigjack213/multi-worker ./worker
+

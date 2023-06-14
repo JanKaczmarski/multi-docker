@@ -13,4 +13,11 @@ after_success:
   - docker build -t bigjack213/multi-nginx ./nginx
   - docker build -t bigjack213/multi-server ./server
   - docker build -t bigjack213/multi-worker ./worker
-
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take those images and push them to docker hub
+  - docker push bigjack213/multi-client
+  - docker push bigjack213/multi-nginx
+  - docker push bigjack213/multi-server
+  - docker push bigjack213/multi-worker
+ 

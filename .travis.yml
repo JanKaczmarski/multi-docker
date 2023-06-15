@@ -21,3 +21,4 @@ after_success:
   - docker push bigjack213/multi-server
   - docker push bigjack213/multi-worker
  
+

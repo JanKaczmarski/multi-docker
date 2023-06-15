@@ -21,7 +21,7 @@ pipeline {
         stage ('Test') {
             steps {
                 sh '''
-                docker run bigjack213/react-test npm test -- --coverage
+                docker run -e CI=true USERNAME/react-test npm test
                 '''
             }
         }

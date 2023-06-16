@@ -18,13 +18,6 @@ pipeline {
                 '''
             }
         }
-        // stage ('Test') {
-        //     steps {
-        //         sh '''
-        //         docker run $DOCKER_LOGIN/react-test npm test
-        //         '''
-        //     }
-        // }
         stage ('Push to docker hub') {
             steps {
                 sh '''
@@ -42,6 +35,9 @@ pipeline {
                 docker push $DOCKER_LOGIN/multi-worker
                 '''
             }
+        }
+        stage('Deploy') {
+            
         }
     }
     post {

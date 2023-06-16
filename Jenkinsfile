@@ -36,9 +36,9 @@ pipeline {
                 '''
             }
         }
-        stage('Deploy') {
-            
-        }
+        // stage('Deploy') {
+
+        // }
     }
     post {
         always {
